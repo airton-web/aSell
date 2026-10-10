@@ -4,10 +4,13 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 
 public class VenderCommand implements CommandExecutor  {
+    private final Prices prices = new Prices();
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -22,9 +25,26 @@ public class VenderCommand implements CommandExecutor  {
         }
 
         Player player = (Player) sender;
-        player.sendMessage("§4§lMAGMAMC §8➜ §7Venda realizada com sucesso!");
-        player.sendMessage("§7seus itens foram vendidos por §a%valor% coins§7.");
-         return true;
+        PlayerInventory inventory = player.getInventory();
+        ItemStack[] contents = inventory.getStorageContents();
+
+        double total = 0;
+        int soldItems = 0;
+        for (int slot = 0; slot < contents.length; slot++) {
+            ItemStack item = contents[slot];
+            if (item == null) {
+                continue;
+            }
+            double price = prices.getPrice(item.getType());
+            if (price <= 0) {
+                continue;
+            }
+            total += price * item.getAmount();
+            soldItems += item.getAmount();
+            inventory.setItem(slot, null);
+        }
+        player.sendMessage("§7Você vendeu §a" + soldItems + " itens §7por §a" + total + " coins§7.");
+        return true;
     }
 }
 
