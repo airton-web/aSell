@@ -1,5 +1,6 @@
 package io.github.airtonweb.asell;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -16,8 +17,9 @@ public final class aSell extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        getLogger().info("aSell Ativado!");
+        getLogger().info("aSell Ligado!");
         getLogger().info("Versão: " + getPluginMeta().getVersion());
+
     }
 
     // Chamado quando o servidor desliga o plugin
