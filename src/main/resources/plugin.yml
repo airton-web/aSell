@@ -6,6 +6,11 @@ author: airton-web
 description: Sell ores and other items.
 commands:
   vender:
-    description: Sell items from your inventory
+    description: Venda seus Minérios e Plantações.
     aliases: [sell, vendas]
     usage: /vender
+
+permissions:
+  asell.vender:
+    description: Venda seus Minérios e Plantações.
+    default: op
