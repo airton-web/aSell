@@ -4,3 +4,7 @@ main: io.github.airtonweb.asell.aSell
 api-version: '1.21'
 author: airton-web
 description: Sell ores and other items.
+commands:
+  vender:
+    description: Sell items from your inventory
+    usage: /vender

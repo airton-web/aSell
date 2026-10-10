@@ -20,7 +20,7 @@ public final class aSell extends JavaPlugin {
         getLogger().info("aSell Ligado!");
         getLogger().info("Versão: " + getPluginMeta().getVersion());
         getLogger().info("Versão Minecraft: " + Bukkit.getMinecraftVersion());
-
+        getCommand("vender").setExecutor(new VenderCommand());
     }
 
     // Chamado quando o servidor desliga o plugin
