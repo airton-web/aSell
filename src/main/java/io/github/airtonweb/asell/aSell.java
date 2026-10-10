@@ -16,7 +16,7 @@ public final class aSell extends JavaPlugin {
     // Chamado quando o servidor liga o plugin
     @Override
     public void onEnable() {
-        getLogger().info("aSell Ligado!");
+        getLogger().info("aSell Ativado!");
     }
 
     // Chamado quando o servidor desliga o plugin
