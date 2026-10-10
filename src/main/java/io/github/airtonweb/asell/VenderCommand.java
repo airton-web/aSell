@@ -15,9 +15,13 @@ public class VenderCommand implements CommandExecutor  {
             sender.sendMessage("Apenas jogadores podem executar este comando");
             return true;
         }
-            Player player = (Player) sender;
-            player.sendMessage("Olá " + player.getName() + " Seu comando foi executado com sucesso");
-            return true;
+
+        Player player = (Player) sender;
+        player.sendMessage("§4§lMAGMAMC §8» §7Venda realizada com sucesso!");
+        player.sendMessage("§7Seus itens foram vendidos por §a%valor% coins§7.");
+
+        return true;
+
     }
 }
 

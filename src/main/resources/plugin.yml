@@ -7,4 +7,5 @@ description: Sell ores and other items.
 commands:
   vender:
     description: Sell items from your inventory
+    aliases: [sell, vendas]
     usage: /vender
