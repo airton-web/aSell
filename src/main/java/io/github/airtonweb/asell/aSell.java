@@ -19,6 +19,7 @@ public final class aSell extends JavaPlugin {
     public void onEnable() {
         getLogger().info("aSell Ligado!");
         getLogger().info("Versão: " + getPluginMeta().getVersion());
+        getLogger().info("Versão Minecraft: " + Bukkit.getMinecraftVersion());
 
     }
 
