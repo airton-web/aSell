@@ -13,10 +13,11 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public final class aSell extends JavaPlugin {
 
-    // Chamado quando o servidor liga o plugin
+
     @Override
     public void onEnable() {
         getLogger().info("aSell Ativado!");
+        getLogger().info("Versão: " + getPluginMeta().getVersion());
     }
 
     // Chamado quando o servidor desliga o plugin
@@ -25,3 +26,4 @@ public final class aSell extends JavaPlugin {
         getLogger().info("aSell Desligado!");
     }
 }
+
