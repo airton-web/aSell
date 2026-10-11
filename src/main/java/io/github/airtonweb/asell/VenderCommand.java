@@ -58,7 +58,6 @@ public class VenderCommand implements CommandExecutor {
             if (item == null) {
                 continue;
             }
-
             double price = priceFinder.apply(item.getType());
             if (price <= 0) {
                 continue;
@@ -67,6 +66,11 @@ public class VenderCommand implements CommandExecutor {
             total += price * item.getAmount();
             soldItems += item.getAmount();
             inventory.setItem(slot, null);
+        }
+
+        if (soldItems == 0) {
+            player.sendMessage("§cvoçê não tem items para vender.");
+            return;
         }
 
         player.sendMessage("§7Você vendeu §a" + soldItems + " itens §7por §a" + total + " coins§7.");
