@@ -7,6 +7,15 @@ import java.util.Map;
 
 public class Prices {
 
+    // Devolve o preço de qualquer item vendável: primeiro tenta minério, depois farm
+    public double getAnyPrice(Material material) {
+        double orePrice = getOrePrice(material);
+        if (orePrice > 0) {
+            return orePrice;
+        }
+        return getFarmPrice(material);
+    }
+
     // Tabela de minérios e tabela de farm: tipo do item -> preço de 1 unidade
     private final Map<Material, Double> orePrices = new HashMap<>();
     private final Map<Material, Double> farmPrices = new HashMap<>();

@@ -20,3 +20,7 @@ permissions:
   asell.vender.farm:
     description: Venda somente de Plantações.
     default: true
+
+  asell.vender.tudo:
+    description: Venda Todos os Minérios e Plantações.
+    default: true

@@ -33,7 +33,7 @@ public class VenderCommand implements CommandExecutor {
 
         // /vender sozinho: ensina como usar
         if (args.length == 0) {
-            player.sendMessage("§cUse: /vender minerios ou /vender farm");
+            player.sendMessage("§cUse: /vender minerios, /vender farm ou /vender tudo");
             return true;
         }
 
@@ -53,8 +53,16 @@ public class VenderCommand implements CommandExecutor {
             }
             sell(player, prices::getFarmPrice);
 
+        } else if (args[0].equalsIgnoreCase("tudo")) {
+            // Porteiro 3: permissão própria do /vender tudo
+            if (!player.hasPermission("asell.vender.tudo")) {
+                player.sendMessage("§cVocê não tem permissão para vender tudo.");
+                return true;
+            }
+            sell(player, prices::getAnyPrice);
+
         } else {
-            player.sendMessage("§cUse: /vender minerios ou /vender farm");
+            player.sendMessage("§cUse: /vender minerios, /vender farm ou /vender tudo");
         }
 
         return true;
