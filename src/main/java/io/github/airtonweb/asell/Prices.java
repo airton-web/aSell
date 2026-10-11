@@ -12,7 +12,7 @@ public class Prices {
     private final Map<Material, Double> farmPrices = new HashMap<>();
 
     public Prices() {
-        // Minérios
+        // Minérios.
         orePrices.put(Material.COAL, 1.0);
         orePrices.put(Material.COPPER_INGOT, 5.0);
         orePrices.put(Material.IRON_INGOT, 10.0);
@@ -25,7 +25,7 @@ public class Prices {
         orePrices.put(Material.EMERALD, 80.0);
         orePrices.put(Material.NETHERITE_INGOT, 90.0);
 
-        // Farm
+        // Plantações.
         farmPrices.put(Material.WHEAT, 1.0);
         farmPrices.put(Material.CARROT, 1.0);
         farmPrices.put(Material.POTATO, 1.0);
