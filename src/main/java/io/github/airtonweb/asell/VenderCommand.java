@@ -16,11 +16,14 @@ public class VenderCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+
+        // Porteiro 1: só jogadores
         if (!(sender instanceof Player)) {
             sender.sendMessage("§cApenas jogadores podem executar este comando");
             return true;
         }
 
+        // Porteiro 2: permissão geral do comando
         if (!sender.hasPermission("asell.vender")) {
             sender.sendMessage("§cVocê não tem permissão para usar este comando.");
             return true;
@@ -35,9 +38,21 @@ public class VenderCommand implements CommandExecutor {
         }
 
         if (args[0].equalsIgnoreCase("minerios")) {
+            // Porteiro 3: permissão da categoria minérios
+            if (!player.hasPermission("asell.vender.minerios")) {
+                player.sendMessage("§cVocê não tem permissão para vender minérios.");
+                return true;
+            }
             sell(player, prices::getOrePrice);
+
         } else if (args[0].equalsIgnoreCase("farm")) {
+            // Porteiro 3: permissão da categoria farm
+            if (!player.hasPermission("asell.vender.farm")) {
+                player.sendMessage("§cVocê não tem permissão para vender itens de farm.");
+                return true;
+            }
             sell(player, prices::getFarmPrice);
+
         } else {
             player.sendMessage("§cUse: /vender minerios ou /vender farm");
         }
@@ -58,6 +73,7 @@ public class VenderCommand implements CommandExecutor {
             if (item == null) {
                 continue;
             }
+
             double price = priceFinder.apply(item.getType());
             if (price <= 0) {
                 continue;
@@ -69,7 +85,7 @@ public class VenderCommand implements CommandExecutor {
         }
 
         if (soldItems == 0) {
-            player.sendMessage("§cvoçê não tem items para vender.");
+            player.sendMessage("§cVocê não tem itens para vender.");
             return;
         }
 

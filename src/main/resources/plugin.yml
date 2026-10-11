@@ -3,7 +3,7 @@ version: 1.0.0
 main: io.github.airtonweb.asell.aSell
 api-version: '1.21'
 author: airton-web
-description: Sell ores and other items.
+description: Venda seus Minérios e Plantações.
 commands:
   vender:
     description: Venda seus Minérios e Plantações.
@@ -14,3 +14,9 @@ permissions:
   asell.vender:
     description: Venda seus Minérios e Plantações.
     default: true
+  asell.vender.minerios:
+    description: Venda somente de Minérios.
+    default: op
+  asell.vender.farm:
+    description: Venda somente de Plantações.
+    default: op
