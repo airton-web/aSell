@@ -1,5 +1,6 @@
 package io.github.airtonweb.asell;
 
+import io.github.airtonweb.aeconomy.api.Economy;                 // ← NOVO (1)
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,6 +14,12 @@ import java.util.function.Function;
 public class VenderCommand implements CommandExecutor {
 
     private final Prices prices = new Prices();
+    private final Economy economy;                               // ← NOVO (2)
+
+    // Construtor: recebe a economia que a classe principal encontrou
+    public VenderCommand(Economy economy) {                      // ← NOVO (2)
+        this.economy = economy;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -96,6 +103,9 @@ public class VenderCommand implements CommandExecutor {
             player.sendMessage("§cVocê não tem itens para vender.");
             return;
         }
+
+        // O dinheiro vai para o saldo do jogador no aEconomy      // ← NOVO (3)
+        economy.addBalance(player.getUniqueId(), "coins", total);
 
         player.sendMessage("§7Você vendeu §a" + soldItems + " itens §7por §a" + total + " coins§7.");
     }

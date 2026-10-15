@@ -3,6 +3,7 @@ version: 1.0.0
 main: io.github.airtonweb.asell.aSell
 api-version: '1.21'
 author: airton-web
+depend: [aEconomy]
 description: Venda seus Minérios e Plantações.
 commands:
   vender:

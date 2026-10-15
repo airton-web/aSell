@@ -31,6 +31,15 @@
             <!-- provided = o servidor já fornece, não vai dentro do .jar -->
             <scope>provided</scope>
         </dependency>
+
+        <!-- O plugin de economia (a API fica dentro dele) -->
+        <dependency>
+            <groupId>io.github.airtonweb</groupId>
+            <artifactId>aeconomy</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- provided = o aEconomy já está no servidor, não copiar para dentro do aSell -->
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
